@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Fortran Compile",
+			"command": "gfortran.exe",
+			"args": [
+				"-g",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "Compiler : gfortran"
+		}
+	]
+}
