@@ -122,6 +122,7 @@ program main
     call gyr_plot
     call cal_gyr_standard
     call err_plot
+    call f_gyr_standard_plot
     print *, 'Finish!'
 end program main
 
@@ -187,6 +188,20 @@ subroutine err_plot
         end do
     close(io)
 end subroutine err_plot
+
+subroutine f_gyr_standard_plot
+    use r64
+    use math_const
+    use main_var
+    use thick_var
+    implicit none
+    integer io, i
+    open(newunit = io, file = 'D:\WHC_File\Study\research\GYR\Fortran\LAGRANGE\data\f_gyr_standard.txt')
+    do i = 1, n_r + 1
+        write(io, *) f_gyr_standard(i, :)
+    end do
+    close(io)
+end subroutine f_gyr_standard_plot
 
 subroutine cal_gyr
     use r64
